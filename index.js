@@ -15,6 +15,21 @@ canvas.height=576;//(64*9);
 
 const player = new Player();
 
+const keys = {
+    w:{
+        pressed:false,
+    },
+    a:{
+        pressed:false, 
+    },
+    s:{
+        pressed:false,
+    },
+    d:{
+        pressed:false,
+    }
+}
+
 //let y=100;
 //const heightOfBox=100;
 //let bottomOfBox = y+100;
@@ -25,6 +40,15 @@ function animate(){
     ////c.clearRect(0,0,400,400);
     console.log('animate');
     //
+    player.velocity.x=0;
+    
+    //if(keys.w.pressed){player.velocity.y=-5;}
+    //console.log('i pressed w')
+    
+    if(keys.d.pressed){player.velocity.x=5;}
+    else if (keys.a.pressed){
+        player.velocity.x=-5;
+    }
     
     player.draw();
     player.update();
