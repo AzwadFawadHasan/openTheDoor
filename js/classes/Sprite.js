@@ -1,5 +1,5 @@
 class Sprite{
-    constructor({position, imageSrc, frameRate =1, animations}){//passing an object called position
+    constructor({position, imageSrc, frameRate =1, animations,frameBuffer=2, loop=true, autoplay=true}){//passing an object called position
         this.position=position;
         this.image= new Image()
         this.image.src = imageSrc
@@ -12,8 +12,10 @@ class Sprite{
         this.frameRate= frameRate
         this.currentFrame=0;
         this.elapsedFrames = 0;
-        this.frameBuffer=2;
+        this.frameBuffer=frameBuffer;
         this.animations=animations;
+        this.loop=loop;
+        this.autoplay=autoplay
         if(this.animations){
             // if there are multiple animations
             //we want to run a for loop for all the elements/keys in the animation object
@@ -21,7 +23,7 @@ class Sprite{
                 const image = new Image()
                 image.src = this.animations[key].imageSrc
                 //within each animation object, we will now assign the actual image that we are creating equal to a property called image
-                this.animations[key].image= image
+                this.animations[key].image= image   
             }
         }
     }
@@ -40,13 +42,17 @@ class Sprite{
         this.updateFrames();
         
     }
+    play(){
+        this.autoplay=true;
+    }
     updateFrames(){
+        if(!this.autoplay)return
         this.elapsedFrames+=27;
         if(this.elapsedFrames%this.frameBuffer===0){
             if(this.currentFrame< this.frameRate-1){
                 this.currentFrame++;
             }
-            else{
+            else if(this.loop){
                 this.currentFrame=0
             }
             

@@ -24,6 +24,19 @@ const backgroundLevel1= new Sprite({
 }
 )
 //const collisionBlocks = []
+const doors=[//doors array stores all the doors in the game
+    new Sprite({
+        position: {
+            x:767,y:270
+        },
+        imageSrc: 'img/doorOpen.png',
+        frameRate:5, 
+        frameBuffer:5,
+        loop:false,
+        autoplay:false,
+    })
+    
+]
 
 const keys = {
     w:{
@@ -92,6 +105,10 @@ function animate(){
     backgroundLevel1.draw();
     collisionBlocks.forEach(collisionBlocks=>{
         collisionBlocks.draw();
+    })
+
+    doors.forEach(door=>{
+        door.draw();
     })
     //console.log('animate');
     //
