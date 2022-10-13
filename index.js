@@ -50,6 +50,9 @@ function animate(){
     //c.fillRect(0,0,canvas.width,canvas.height);
     //////c.clearRect(0,0,400,400);
     backgroundLevel1.draw();
+    collisionBlocks.forEach(collisionBlocks=>{
+        collisionBlocks.draw();
+    })
     console.log('animate');
     //
     player.velocity.x=0;
