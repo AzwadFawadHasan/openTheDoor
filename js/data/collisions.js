@@ -25,37 +25,4 @@ Array.prototype.parse2D = function() {
 }
 
 
-class CollisionBlack{
-    constructor({position}){
-        this.position = position
-        this.width = 64
-        this.height = 64//each block in the tiles is of 64 px
 
-    }
-    draw(){
-        c.fillStyle='rgba(255,0,0,0.5)'
-        c.fillRect(this.position.x, this.position.y, this.width, this.height)
-    }
-}
-const collisionBlocks = []
-
-const parsedCollisions = collisionsLevel1.parse2D()
-//console.log(parsedCollisions)
-parsedCollisions.forEach((row,y) => {
-    //console.log(row)
-    row.forEach((symbol,x) => {
-        if(symbol===292){
-            //piush a new collision into the collision blacks araray
-            collisionBlocks.push(new CollisionBlack(
-                {
-                    position:{
-                        x:x*64,//x index multiplies by 64
-                        y:y*64,
-                    }
-                }
-            ))
-        }
-
-
-    })
-})

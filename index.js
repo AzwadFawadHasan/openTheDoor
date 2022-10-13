@@ -40,6 +40,11 @@ const keys = {
     }
 }
 
+//const collisionBlocks = []
+
+const parsedCollisions = collisionsLevel1.parse2D()
+//console.log(parsedCollisions)
+const collisionBlocks=parsedCollisions.createObjectsFrom2D();
 //let y=100;
 //const heightOfBox=100;
 //let bottomOfBox = y+100;
