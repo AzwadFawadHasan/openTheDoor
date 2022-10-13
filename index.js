@@ -22,8 +22,7 @@ const backgroundLevel1= new Sprite({
     imageSrc:'img/backgroundLevel1.png',
 }
 )
-
-const player = new Player();
+//const collisionBlocks = []
 
 const keys = {
     w:{
@@ -40,11 +39,15 @@ const keys = {
     }
 }
 
-//const collisionBlocks = []
+//
 
 const parsedCollisions = collisionsLevel1.parse2D()
 //console.log(parsedCollisions)
 const collisionBlocks=parsedCollisions.createObjectsFrom2D();
+const player = new Player({
+    collisionBlocks:collisionBlocks
+});
+
 //let y=100;
 //const heightOfBox=100;
 //let bottomOfBox = y+100;
