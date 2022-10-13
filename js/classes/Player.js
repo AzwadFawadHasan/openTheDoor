@@ -1,6 +1,6 @@
 class Player extends Sprite{//creating class for increased readablity of code
-    constructor({collisionBlocks=[], imageSrc, frameRate}){
-        super({imageSrc, frameRate} ); 
+    constructor({collisionBlocks=[], imageSrc, frameRate, animations}){
+        super({imageSrc, frameRate, animations} ); 
         //super({imageSrc})//passing imageSrc to Sprite Class
         this.position = {//this.position is equal to an object with the followign properties
             x:200,
@@ -36,12 +36,20 @@ class Player extends Sprite{//creating class for increased readablity of code
         //making hitbox
         
 
-        c.fillRect(this.hitbox.position.x,this.hitbox.position.y, this.hitbox.width,this.hitbox.height)
+        //c.fillRect(this.hitbox.position.x,this.hitbox.position.y, this.hitbox.width,this.hitbox.height)
         //checking for vertical collisions
         this.updateHitbox();
         this.checkForVerticalCollisions();
 
         
+    }
+    switchSprite(name){
+        if(this.image === this.animations[name].image )return 
+        this.currentFrame=0;
+        this.image=this.animations[name].image;
+        this.frameRate= this.animations[name].frameRate;
+        this.frameBuffer= this.animations[name].frameBuffer;
+
     }
 
     checkForHorizontalCollisions(){

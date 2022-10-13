@@ -1,5 +1,5 @@
 class Sprite{
-    constructor({position, imageSrc, frameRate =1}){//passing an object called position
+    constructor({position, imageSrc, frameRate =1, animations}){//passing an object called position
         this.position=position;
         this.image= new Image()
         this.image.src = imageSrc
@@ -13,6 +13,17 @@ class Sprite{
         this.currentFrame=0;
         this.elapsedFrames = 0;
         this.frameBuffer=2;
+        this.animations=animations;
+        if(this.animations){
+            // if there are multiple animations
+            //we want to run a for loop for all the elements/keys in the animation object
+            for (let key in this.animations){
+                const image = new Image()
+                image.src = this.animations[key].imageSrc
+                //within each animation object, we will now assign the actual image that we are creating equal to a property called image
+                this.animations[key].image= image
+            }
+        }
     }
     draw(){
         if(!this.loaded)return
@@ -30,7 +41,7 @@ class Sprite{
         
     }
     updateFrames(){
-        this.elapsedFrames+=13;
+        this.elapsedFrames+=27;
         if(this.elapsedFrames%this.frameBuffer===0){
             if(this.currentFrame< this.frameRate-1){
                 this.currentFrame++;
