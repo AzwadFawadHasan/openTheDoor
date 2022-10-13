@@ -9,18 +9,37 @@ class Sprite{
             this.height = this.image.height//11
         }
         this.loaded = false
-        this.frameRate= this.frameRate
+        this.frameRate= frameRate
+        this.currentFrame=0;
+        this.elapsedFrames = 0;
+        this.frameBuffer=2;
     }
     draw(){
         if(!this.loaded)return
         const cropbox = {
             position:{
-                x:0,y:0
+                x:this.width*this.currentFrame,y:0
             },
             width: this.width,
             height: this.height
              
         }
+        
         c.drawImage(this.image,cropbox.position.x, cropbox.position.y,cropbox.width, cropbox.height, this.position.x, this.position.y,this.width, this.height)
+        this.updateFrames();
+        
+    }
+    updateFrames(){
+        this.elapsedFrames+=13;
+        if(this.elapsedFrames%this.frameBuffer===0){
+            if(this.currentFrame< this.frameRate-1){
+                this.currentFrame++;
+            }
+            else{
+                this.currentFrame=0
+            }
+            
+        }
+        
     }
 }

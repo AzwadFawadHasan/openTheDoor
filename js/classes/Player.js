@@ -1,6 +1,6 @@
 class Player extends Sprite{//creating class for increased readablity of code
     constructor({collisionBlocks=[], imageSrc, frameRate}){
-        super({imageSrc, frameRate})
+        super({imageSrc, frameRate} ); 
         //super({imageSrc})//passing imageSrc to Sprite Class
         this.position = {//this.position is equal to an object with the followign properties
             x:200,
@@ -18,12 +18,13 @@ class Player extends Sprite{//creating class for increased readablity of code
         },
         this.gravity=1,
         this.collisionBlocks=collisionBlocks;
+        this.frameRate=frameRate
     }
-    draw(){//how should a player look like
-       c.fillStyle = 'rgba(0,0,255,0.5)';
-       c.fillRect(this.position.x,this.position.y,this.width,this.height)
-//
-    }
+    //draw(){//how should a player look like
+    //   c.fillStyle = 'rgba(0,0,255,0.5)';
+    //   c.fillRect(this.imagethis.position.x,this.position.y,this.width,this.height)
+////
+    //}
     update(){
         //y++;//increasing y by 1 each frame, so that box looks like it's moving
         //sides = y+100;

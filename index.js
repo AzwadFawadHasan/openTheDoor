@@ -20,6 +20,7 @@ const backgroundLevel1= new Sprite({
         y:0,//we want the image to start from the top left
     },
     imageSrc:'img/backgroundLevel1.png',
+    //frameRate:11
 }
 )
 //const collisionBlocks = []
@@ -47,8 +48,8 @@ const collisionBlocks=parsedCollisions.createObjectsFrom2D();
 
 const player = new Player({
     collisionBlocks:collisionBlocks,
-    imageSrc: "img/king/idle.png"
-    ,frameRate:11,
+    imageSrc: 'img/king/idle.png',
+    frameRate:11,
 });
 
 //let y=100;
