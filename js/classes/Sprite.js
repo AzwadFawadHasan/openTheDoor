@@ -15,7 +15,8 @@ class Sprite{
         this.frameBuffer=frameBuffer;
         this.animations=animations;
         this.loop=loop;
-        this.autoplay=autoplay
+        this.autoplay=autoplay;
+        this.currentAnimation
         if(this.animations){
             // if there are multiple animations
             //we want to run a for loop for all the elements/keys in the animation object
@@ -57,6 +58,13 @@ class Sprite{
             }
             
         }
-        
+        //checking for whether there is any next sprite sheet present to load a new world after door is enteres
+        if(this.currentAnimation?.onComplete){
+            if(this.currentFrame === this.frameRate -1 && !this.currentAnimation.isActive){
+                this.currentAnimation.onComplete();currentAnimation.isActive=true;
+            }
+            
+
+        }
     }
 }
