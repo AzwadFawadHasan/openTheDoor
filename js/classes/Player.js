@@ -1,6 +1,6 @@
 class Player extends Sprite{//creating class for increased readablity of code
-    constructor({collisionBlocks=[], imageSrc, frameRate, animations}){
-        super({imageSrc, frameRate, animations} ); 
+    constructor({collisionBlocks=[], imageSrc, frameRate, animations, loop}){
+        super({imageSrc, frameRate, animations, loop} ); 
         //super({imageSrc})//passing imageSrc to Sprite Class
         this.position = {//this.position is equal to an object with the followign properties
             x:200,
@@ -43,12 +43,39 @@ class Player extends Sprite{//creating class for increased readablity of code
 
         
     }
+    handleInput(keys){
+    if(this.preventInput) return
+        this.velocity.x=0;
+        
+        //if(keys.w.pressed){player.velocity.y=-5;}
+        //console.log('i pressed w')
+        
+        if(keys.d.pressed){
+            this.switchSprite('runRight')
+            this.velocity.x=5;
+            this.lastDirection='right'
+        }
+        else if (keys.a.pressed){
+            this.switchSprite('runLeft')
+            this.velocity.x=-5;
+            this.lastDirection='left' 
+        }
+        else{
+            if(this.lastDirection==='left'){
+                this.switchSprite('idleLeft')
+            }
+            else this.switchSprite('idleRight')
+
+    }
+    
+    }
     switchSprite(name){
         if(this.image === this.animations[name].image )return 
         this.currentFrame=0;
         this.image=this.animations[name].image;
         this.frameRate= this.animations[name].frameRate;
         this.frameBuffer= this.animations[name].frameBuffer;
+        this.loop= this.animations[name].loop;
 
     }
 
