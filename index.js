@@ -46,7 +46,9 @@ const parsedCollisions = collisionsLevel1.parse2D()
 const collisionBlocks=parsedCollisions.createObjectsFrom2D();
 
 const player = new Player({
-    collisionBlocks:collisionBlocks
+    collisionBlocks:collisionBlocks,
+    imageSrc: "img/king/idle.png"
+    ,frameRate:11,
 });
 
 //let y=100;

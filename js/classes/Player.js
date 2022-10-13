@@ -1,11 +1,13 @@
-class Player{//creating class for increased readablity of code
-    constructor({collisionBlocks=[]}){
+class Player extends Sprite{//creating class for increased readablity of code
+    constructor({collisionBlocks=[], imageSrc, frameRate}){
+        super({imageSrc, frameRate})
+        //super({imageSrc})//passing imageSrc to Sprite Class
         this.position = {//this.position is equal to an object with the followign properties
             x:200,
             y:200,
         },
-        this.width=25,
-        this.height=25,
+        //this.width=25,
+        //this.height=25,
         this.sides ={
             bottom:this.position.y+this.height,
 
@@ -18,9 +20,9 @@ class Player{//creating class for increased readablity of code
         this.collisionBlocks=collisionBlocks;
     }
     draw(){//how should a player look like
-        c.fillStyle = 'red';
-        c.fillRect(this.position.x,this.position.y,this.width,this.height)
-
+       c.fillStyle = 'rgba(0,0,255,0.5)';
+       c.fillRect(this.position.x,this.position.y,this.width,this.height)
+//
     }
     update(){
         //y++;//increasing y by 1 each frame, so that box looks like it's moving
