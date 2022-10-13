@@ -13,6 +13,16 @@ canvas.width=1024;//(64*16);
 canvas.height=576;//(64*9);
 
 
+
+const backgroundLevel1= new Sprite({
+    position:{
+        x:0,
+        y:0,//we want the image to start from the top left
+    },
+    imageSrc:'img/backgroundLevel1.png',
+}
+)
+
 const player = new Player();
 
 const keys = {
@@ -35,9 +45,11 @@ const keys = {
 //let bottomOfBox = y+100;
 function animate(){
     window.requestAnimationFrame(animate);
-    c.fillStyle='white';
-    c.fillRect(0,0,canvas.width,canvas.height);
-    ////c.clearRect(0,0,400,400);
+    
+    //c.fillStyle='white';
+    //c.fillRect(0,0,canvas.width,canvas.height);
+    //////c.clearRect(0,0,400,400);
+    backgroundLevel1.draw();
     console.log('animate');
     //
     player.velocity.x=0;
