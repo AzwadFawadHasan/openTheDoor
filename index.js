@@ -44,6 +44,7 @@ const keys = {
 const parsedCollisions = collisionsLevel1.parse2D()
 //console.log(parsedCollisions)
 const collisionBlocks=parsedCollisions.createObjectsFrom2D();
+
 const player = new Player({
     collisionBlocks:collisionBlocks
 });

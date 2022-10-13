@@ -7,7 +7,7 @@ window.addEventListener('keydown',(event)=>{
             x=1;
             if(player.velocity.y ===0 && x==1){
                 
-                player.velocity.y=-20;
+                player.velocity.y=-25;
             }
             x=1;
             
