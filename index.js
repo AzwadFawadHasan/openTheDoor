@@ -85,7 +85,41 @@ let levels={
 ]
 
         }
-    }
+    },
+
+    3:{
+        init: () => {
+             parsedCollisions = collisionsLevel3.parse2D()
+            //console.log(parsedCollisions)
+             collisionBlocks=parsedCollisions.createObjectsFrom2D();
+            player.collisionBlocks=collisionBlocks,
+            player.position.x = 750; 
+            player.position.y=230;
+             background= new Sprite({
+                position:{
+                    x:0,
+                    y:0,//we want the image to start from the top left
+                },
+                imageSrc:'img/backgroundLevel2.png',
+                //frameRate:11
+            }
+            )
+            doors=[//doors array stores all the doors in the game
+                        new Sprite({
+                            position: {
+                                x:176,y:335
+                            },
+                            imageSrc: 'img/doorOpen.png',
+                            frameRate:5, 
+                            frameBuffer:5,
+                            loop:false,
+                            autoplay:false,
+                        })
+    
+]
+
+        }
+    },
 }
 
 
