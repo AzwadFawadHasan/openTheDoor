@@ -96,7 +96,7 @@ const player = new Player({
             imageSrc: 'img/king/enterDoor.png',
             onComplete:()=>{
                 console.log('completed animations')// here onComplete is equal to a ufnction    
-            }
+            },
 
         }
     },

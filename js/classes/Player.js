@@ -76,7 +76,7 @@ class Player extends Sprite{//creating class for increased readablity of code
         this.frameRate= this.animations[name].frameRate;
         this.frameBuffer= this.animations[name].frameBuffer;
         this.loop= this.animations[name].loop;
-        this.currentAnimation=this.animations[name].currentAnimation;
+        this.currentAnimation=this.animations[name];
 
     }
 
