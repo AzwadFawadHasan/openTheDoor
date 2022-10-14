@@ -95,7 +95,11 @@ const player = new Player({
             loop:false,
             imageSrc: 'img/king/enterDoor.png',
             onComplete:()=>{
-                console.log('completed animations')// here onComplete is equal to a ufnction    
+                console.log('completed animations')// here onComplete is equal to a ufnction  
+                //overlay.opacity 0 1
+                gsap.to(overlay, {
+                    opacity:1,
+                })  
             },
 
         }
@@ -103,6 +107,10 @@ const player = new Player({
     
 });
 
+
+const overlay={
+    opacity:0,
+}
 //let y=100;
 //const heightOfBox=100;
 //let bottomOfBox = y+100;
@@ -126,6 +134,12 @@ function animate(){
     
     player.draw();
     player.update();
+
+    c.save();
+    c.globalAlpha=overlay.opacity//0.5;
+    c.fillStyle = 'black';
+    c.fillRect(0,0, canvas.width, canvas.height)
+    c.restore();
     
 }
 animate();//calling the above function
