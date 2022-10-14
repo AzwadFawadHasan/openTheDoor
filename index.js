@@ -143,9 +143,7 @@ function animate(){
     //c.fillRect(0,0,canvas.width,canvas.height);
     //////c.clearRect(0,0,400,400);
     background.draw();
-    collisionBlocks.forEach(collisionBlocks=>{
-        collisionBlocks.draw();
-    })
+    
 
     doors.forEach(door=>{
         door.draw();
