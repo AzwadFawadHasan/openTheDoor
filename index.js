@@ -217,9 +217,7 @@ const overlay={
 //let y=100;
 //const heightOfBox=100;
 //let bottomOfBox = y+100;
-const overlay={
-    opacity:0,
-}
+
 
 function animate(){
     window.requestAnimationFrame(animate);
