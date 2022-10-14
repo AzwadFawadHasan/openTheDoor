@@ -48,7 +48,7 @@ class Sprite{
     }
     updateFrames(){
         if(!this.autoplay)return
-        this.elapsedFrames+=27;
+        this.elapsedFrames+=5;
         if(this.elapsedFrames%this.frameBuffer===0){
             if(this.currentFrame< this.frameRate-1){
                 this.currentFrame++;
