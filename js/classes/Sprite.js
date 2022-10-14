@@ -48,7 +48,7 @@ class Sprite{
     }
     updateFrames(){
         if(!this.autoplay)return
-        this.elapsedFrames+=27;
+        this.elapsedFrames+=5;
         if(this.elapsedFrames%this.frameBuffer===0){
             if(this.currentFrame< this.frameRate-1){
                 this.currentFrame++;
@@ -61,10 +61,12 @@ class Sprite{
         //checking for whether there is any next sprite sheet present to load a new world after door is enteres
         if(this.currentAnimation?.onComplete){
             if(this.currentFrame === this.frameRate -1 && !this.currentAnimation.isActive){
-                this.currentAnimation.onComplete();currentAnimation.isActive=true;
+                this.currentAnimation.onComplete();
+                this.currentAnimation.isActive=true;
             }
             
 
         }
+       // if(this)
     }
 }
